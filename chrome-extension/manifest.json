@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "豆瓣原图下载插件",
+  "version": "1.0",
+  "description": "Douban original picture download plugin",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://movie.douban.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": []
+}
