@@ -46,20 +46,22 @@ const downloadImage = async (url, imagePath) => {
 };
 
 // 主逻辑
-const fetchImages = async (imageIds) => {
-  if (imageIds.length) {
-    for (const { imageId, imgPrefix } of imageIds) {
+const fetchImages = async (imageIdsList) => {
+  if (imageIdsList.length) {
+    for (const { imageId, imgPrefix, originUrl } of imageIdsList) {
       let imageDownloaded = false;
       const url = `https://${imgPrefix}.doubanio.com/view/photo/raw/public/${imageId}.jpg`;
       const imagePath = path.join(desktopPath, `${imageId}.jpg`);
       try {
         await downloadImage(url, imagePath);
-        console.log(`图片 ${url} 下载成功`);
+        console.log(`图片原图下载成功`);
         imageDownloaded = true;
       } catch (e) {}
 
       if (!imageDownloaded) {
-        console.log(`图片 ${url} 下载失败`);
+        console.log(`图片原图下载失败，开始下载缩略图！`);
+        await downloadImage(originUrl, imagePath);
+        console.log(`图片缩略图下载成功`);
       }
     }
     console.log("图片下载任务完成！");

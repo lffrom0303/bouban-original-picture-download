@@ -98,10 +98,10 @@ downloadButton.addEventListener("click", async () => {
       const imgSrc = images[i].src;
       const imageId = imgSrc.split("/").pop().split(".")[0];
       const imgPrefix = imgSrc.split(".")[0].split("//")[1];
-      console.log(imgSrc, imgPrefix, imageId);
       imageIdsList.push({
         imgPrefix,
         imageId,
+        originUrl: imgSrc,
       });
     }
   });
