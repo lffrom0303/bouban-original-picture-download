@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://movie.douban.com/*"],
+      "matches": ["*://*.douban.com/*"],
       "js": ["content.js"]
     }
   ],
