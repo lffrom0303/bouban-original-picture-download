@@ -25,7 +25,7 @@ document.body.appendChild(container);
 
 const handleImages = () => {
   return Array.from(document.querySelectorAll("img")).filter((img) =>
-    img.src.includes("/view/photo/")
+    img.src.includes("doubanio")
   );
 };
 // 获取所有图片并显示复选框
