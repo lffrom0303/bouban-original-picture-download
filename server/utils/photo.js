@@ -64,7 +64,13 @@ const fetchImages = async (imageIdsList) => {
         console.log(`图片缩略图下载成功`);
       }
     }
-    console.log("图片下载任务完成！");
+    let message = `图片下载任务完成！`;
+    console.log(message);
+    return {
+      success: true,
+      status: "success",
+      message,
+    };
   }
 };
 module.exports = fetchImages;
